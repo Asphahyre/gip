@@ -8,7 +8,7 @@ var DATA_PATH = process.env.CUB_DATA_PATH;
 
 var to_get = [
     {"protocole": "wfs", "version": "1.1.0", "features": ["CI_TRAFI_L", "CI_PARK_P"], "options": '&srsName=urn:ogc:def:crs:EPSG::4326'},
-    {"protocole": "wps", "version": "1.0.0", "features": ["CI_TPSTJ_A"]}
+    {"protocole": "wps", "version": "1.0.0", "features": ["CI_TPSTJ_A", "SV_HORAI_A"]}
 ]
 
 to_get.forEach(function(obj){
