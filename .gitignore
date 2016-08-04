@@ -1,2 +1,6 @@
-.DS_Strore
+.DS_Store
 node_modules
+*.pyc
+
+data/*
+!data/**/*.md

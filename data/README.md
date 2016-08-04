@@ -1,0 +1,1 @@
+This directory should contain all the raw data needed to run the model.
