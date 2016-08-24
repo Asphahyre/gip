@@ -42,7 +42,7 @@ def parse_tide(day, month, year):
     return height
 
 def parse_weather(day, month, year):
-    soup = BeautifulSoup(urllib2.urlopen("http://www.meteociel.fr/temps-reel/obs_villes.php?code2=7510&jour2=%s&mois2=%s&annee2=%s&envoyer=OK" % (day, month-1, year)).read())
+    soup = BeautifulSoup(urllib2.urlopen("http://www.meteociel.fr/temps-reel/obs_villes.php?code2=7500&jour2=%s&mois2=%s&annee2=%s&envoyer=OK" % (day, month-1, year)).read())
 
     a = soup('table', {'width': '100%', "border":"1", "cellpadding":"1" ,"cellspacing":"0", "bordercolor":"#C0C8FE" ,"bgcolor":"#EBFAF7"})[0]
 
@@ -197,7 +197,10 @@ weather = {}
 for i, mydate in enumerate(days):
     sys.stdout.write('\r  ' + str(i * 100 / len(days) + 1) + '%')
     sys.stdout.flush()
-    res = parse_weather(mydate.day, mydate.month, mydate.year)
+    try:
+        res = parse_weather(mydate.day, mydate.month, mydate.year)
+    except:
+        continue
     try:
         weather[mydate.year]
     except:
