@@ -1,0 +1,76 @@
+default:
+        # Type of algorithm used for the prediction (currently supported: "decision tree" and "random forest")
+        algorithm: "decision tree"
+        parameters:
+                max_depth: 14
+
+        # A range to aggregate measures (by mean) in minutes (max 60)
+        range: 30
+
+        # If a day don't reach this threshold, it will be discarded
+        invalid_day_threshold: 30
+
+        # All the feature to enable for the model
+        # You can specify parameters with [feature name].[param]; required parameters are specified here
+        features_enabled:
+                - Day_of_week          # A number between 0 to 6 corresponding to the day of the week
+                - Hour_of_day          # A floating point number corresponding to the period of the day (eg: 14.5 -> 14:30)
+                - Month                # Id of a current month
+                - Tide                 # Height (in meters) of the tide
+                - Weather.weather      # A quantifier for the weather's quality between weather type and precipitations or wind speed
+                - Weather.humidity     # Current's humidity
+                - Weather.temperature  # Temperature (Celsius)
+#               - Simple_mins          # A feature containing the minute part of the measure's date
+#               - Simple_hour          # A feature containing the hour part of the measure's date
+#               - Level.[threshold]    # A way to subdivide affluence by levels (divided by [threshold])
+#               - Roads                # A number to say if roads are overloaded
+#               - Weather.humidex      # The felt temperature
+#               - Weather.type         # A number to tell if the weather is bad or good (cloudy, sunny, rainy, ...)
+#               - Holidays.[range]     # A integer between 0 to 3 to tell if we're:
+                                               # 0. not in holidays
+                                               # 1. near to the beginning of holidays ( < [range] days)
+                                               # 2. near to the end of holidays ( < [range] days)
+                                               # 3. in plain holidays
+        prediction:
+                start: 60
+                stop: 2880
+                step: 60
+
+
+long_term:
+        # Type of algorithm used for the prediction (currently supported: "decision tree" and "random forest")
+        algorithm: "decision tree"
+        parameters:
+                max_depth: 14
+
+        # A range to aggregate measures (by mean) in minutes (max 60)
+        range: 30
+
+        # If a day don't reach this threshold, it will be discarded
+        invalid_day_threshold: 30
+
+        # All the feature to enable for the model
+        # You can specify parameters with [feature name].[param]; required parameters are specified here
+        features_enabled:
+                - Day_of_week          # A number between 0 to 6 corresponding to the day of the week
+                - Hour_of_day          # A floating point number corresponding to the period of the day (eg: 14.5 -> 14:30)
+                - Month                # Id of a current month
+                - Tide                 # Height (in meters) of the tide
+                - Weather.weather      # A quantifier for the weather's quality between weather type and precipitations or wind speed
+                - Weather.humidity     # Current's humidity
+                - Weather.temperature  # Temperature (Celsius)
+#               - Simple_mins          # A feature containing the minute part of the measure's date
+#               - Simple_hour          # A feature containing the hour part of the measure's date
+#               - Level.[threshold]    # A way to subdivide affluence by levels (divided by [threshold])
+#               - Roads                # A number to say if roads are overloaded
+#               - Weather.humidex      # The felt temperature
+#               - Weather.type         # A number to tell if the weather is bad or good (cloudy, sunny, rainy, ...)
+#               - Holidays.[range]     # A integer between 0 to 3 to tell if we're:
+                                               # 0. not in holidays
+                                               # 1. near to the beginning of holidays ( < [range] days)
+                                               # 2. near to the end of holidays ( < [range] days)
+                                               # 3. in plain holidays
+        prediction:
+                start: 60
+                stop: 2880
+                step: 60
